@@ -16,6 +16,21 @@ from bs4 import BeautifulSoup
 from colorama import init, Fore, Back,Style
 import sys
 from requests.exceptions import ConnectionError
+import subprocess
+
+wget = subprocess.check_output("which wget", shell=True)
+if "wget" not in str(wget):
+    sys.exit("I need Wget Bro :) Please Install it....")
+
+php = subprocess.check_output("which php", shell=True)
+if "php" not in str(php):
+    sys.exit("I need PHP Bro :) Please Install it....")
+
+unzip = subprocess.check_output("which unzip", shell=True)
+if "unzip" not in str(unzip):
+    sys.exit("I need unzip Bro :) Please Install it....")
+
+
 
 if os.name == "nt":
     sys.exit('Windows Sucks...!!!!')
