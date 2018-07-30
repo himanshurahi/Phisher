@@ -18,17 +18,19 @@ import sys
 from requests.exceptions import ConnectionError
 import subprocess
 
-wget = subprocess.check_output("which wget", shell=True)
-if "wget" not in str(wget):
-    sys.exit("I need Wget Bro :) Please Install it....")
+wget = subprocess.call("which wget > /dev/null", shell=True)
+if not str(wget):
+    sys.exit("I need Wget Bro Please Install it... :)")
 
-php = subprocess.check_output("which php", shell=True)
-if "php" not in str(php):
-    sys.exit("I need PHP Bro :) Please Install it....")
+php = subprocess.call("which php > /dev/null", shell=True)
+if not str(php):
+    sys.exit("I need PHP Bro Please Install it... :)")
 
-unzip = subprocess.check_output("which unzip", shell=True)
-if "unzip" not in str(unzip):
-    sys.exit("I need unzip Bro :) Please Install it....")
+unzip = subprocess.call("which unzip > /dev/null", shell=True)
+if not str(unzip):
+    sys.exit("I need unzip Bro Please Install it... :)")
+
+
 
 
 
