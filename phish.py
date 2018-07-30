@@ -167,15 +167,15 @@ def again():
 
         files = os.listdir("sites/" + server)
         for i in files:
-            os.system("rm -r "+i)
-        os.system("rm -r ip.txt")
-        os.system("rm -r usernames.txt")
+            os.system("rm -r "+i+"> /dev/null 2>&1")
+        os.system("rm -r ip.txt > /dev/null 2>&1")
+        os.system("rm -r usernames.txt > /dev/null 2>&1")
     except KeyboardInterrupt:
         files = os.listdir("sites/" + server)
         for i in files:
-            os.system("rm -r "+i)
-        os.system("rm -r ip.txt")
-        os.system("rm -r usernames.txt")
+            os.system("rm -r "+i+"> /dev/null 2>&1")
+        os.system("rm -r ip.txt > /dev/null 2>&1")
+        os.system("rm -r usernames.txt > /dev/null 2>&1")
     except ConnectionError:
         print(Style.BRIGHT+Fore.RED+"No Internet Connection Bro...."+Style.RESET_ALL)
         sys.exit()
