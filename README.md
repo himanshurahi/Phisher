@@ -13,6 +13,9 @@ PayPal,Shopify,Messenger,Twitch,Myspace
 
 # INSTALLATION
 pip install -r requirements.txt
+
 apt-get install unzip
+
 apt-get install php
+
 run phish.py
