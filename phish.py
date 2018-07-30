@@ -59,7 +59,7 @@ print("""
 
 def again():
     try:
-        i = input("Enter Your Choice: ")
+        i = raw_input("Enter Your Choice: ")
 
         if i == 1:
             os.system("cp -r 'sites/instagram'/* './'")
