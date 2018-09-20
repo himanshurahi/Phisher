@@ -21,6 +21,9 @@ import subprocess
 
 if os.name == "nt":
     sys.exit('Windows Sucks...!!!!')
+    
+if os.geteuid() != 0:
+    exit("You need to have root privileges to run this script.\nPlease try again, this time using 'sudo'. Exiting.")
 
 os.system("killall -2 ngrok > /dev/null 2>&1")
 os.system("killall -2 php > /dev/null 2>&1")
